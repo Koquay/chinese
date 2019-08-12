@@ -1,0 +1,15 @@
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+$deep-green: #75a478;
+
+#view-order {
+    background: $primary;
+    color: $tertiary;
+    font-weight: bold;
+    letter-spacing: .5rem;
+
+    &:hover {
+        background: $deep-green;
+    }
+}

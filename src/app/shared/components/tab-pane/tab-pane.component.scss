@@ -1,0 +1,14 @@
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+$deep-green: #75a478;
+
+button {
+    background: $primary;
+    color: $tertiary;
+    font-weight: bold;
+
+    &:hover {
+        background: $deep-green;
+    }
+}

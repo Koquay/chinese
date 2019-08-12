@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container mt-4" id="main">
+    <app-page-header></app-page-header>
+    <div class="mt-4">
+        <ul class="nav nav-pills">
+            <li class="nav-item" *ngFor="let item of menuData">
+                <a class="nav-link active" role="tab" data-toggle="pill" href={{item.type}} 
+                    (click)="loadMenu(item.type)" [ngClass]="{ 'active':activeTab===item.type}">
+                    <em>{{item.label}}</em><br>
+                </a>
+            </li>
+            
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Noodles</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Vegetable Delights</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Spareribs / Pork</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Beef</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Chicken</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Seafood</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Family Dinners</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Combo Platters</em><br></a></li>
+            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="pill" href="#tab-4"><em>Desserts / Drinks</em><br></a></li>
+        </ul>
+        <div class="tab-content mt-2">
+            <ng-container *ngFor="let item of menuData">
+                <div class="tab-pane" role="tabpanel" id={{item.type}} [ngClass]="{ 'active':activeTab===item.type}">
+                    <app-tab-pane [currentMenu]="currentMenu" [activeTab]="activeTab" *ngIf="!isLoading"></app-tab-pane>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

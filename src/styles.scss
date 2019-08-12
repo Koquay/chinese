@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+
+body {
+    font-family: "Roboto" !important;
+    background: $secondary !important;
+    
+    a {
+        text-decoration: none;
+        cursor:pointer;
+    }
+}

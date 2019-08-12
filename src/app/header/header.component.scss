@@ -1,0 +1,32 @@
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+
+#header {
+    .jumbotron {
+        padding: 2rem !important;
+        font-style: italic;        
+        letter-spacing: 1rem;
+        background: $primary;
+        color: $tertiary;
+        border-radius: 0; 
+
+        h1 {
+            font-weight: 700;
+        }
+    }
+    
+    .navbar {
+        background: $tertiary;
+        .fa-mobile {
+            font-size: 1.5rem; 
+            font-weight: bold !important;
+        }
+        
+        a,
+        span {
+           font-size: 1.2rem;  
+           font-weight: bold !important;
+        }
+    }
+}
