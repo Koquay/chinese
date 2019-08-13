@@ -7,6 +7,8 @@ import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { TabPaneComponent } from './components/tab-pane/tab-pane.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { MessageComponent } from './message/message/message.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 
 @NgModule({
@@ -15,12 +17,16 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
     FooterComponent,
     TabPaneComponent,
     PageHeaderComponent,    
+    MessageComponent, 
+    BannerComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     TabPaneComponent,
-    PageHeaderComponent
+    PageHeaderComponent,    
+    MessageComponent, 
+    BannerComponent
   ],
   imports: [
     CommonModule,

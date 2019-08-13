@@ -26,5 +26,15 @@ export class Order {
     special_instructions: string;
     status: string;
     created_on: Date;
+    public delivery:Delivery = new Delivery();
     
+}
+
+export class Delivery {
+    public method:String = "PickUp";
+    public name:String;
+    public telephone:String;
+    public address:String;
+    public city:String;
+    public instruction:String;    
 }

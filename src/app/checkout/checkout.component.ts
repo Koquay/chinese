@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from './order.service';
-import { Order } from '../shared/models/data-model';
+import { OrderService } from '../order/order.service';
+import { Order, MenuItem } from '../shared/models/data-model';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class CheckoutComponent implements OnInit {
   private order: Order;
-  private deleteItem;
+  private deleteItem:MenuItem;
 
   constructor(
     private orderService: OrderService
@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit {
   private getOrder() {
     this.orderService.getOrder().subscribe(order => {
       this.order = order;
+      console.log('order', order)
     })
   }
 
@@ -47,6 +48,18 @@ export class OrderComponent implements OnInit {
 
   private setDeleteItem(item) {
     this.deleteItem = item;
+  }
+
+  private showDelivery() {
+    console.log('delivery', this.order.delivery)
+  }
+
+  private placeOrder() {
+    console.log('placing order', this.order)
+
+    // this.orderService.placeOrder(this.order).subscribe(() => {
+    //   this.orderPlaced = true;
+    // });
   }
 
 }

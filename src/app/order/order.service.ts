@@ -6,7 +6,7 @@ import { Order, Menu, MenuItem } from '../shared/models/data-model';
   providedIn: 'root'
 })
 export class OrderService {
-  private order:Order = null;
+  public order:Order = null;
   
   constructor() { }
 
@@ -58,6 +58,36 @@ export class OrderService {
     }
 
     return subtotal;
+  }
+
+  public increaseQuantity(itemToIncrease) {
+    // item.quantity += 1;
+    // return this.getOrder();
+
+    let item = this.order.menuItems.find(item => item._id == itemToIncrease._id);
+
+    if (item) {
+      item.quantity += 1;
+      return this.getOrder();
+    }
+  }
+
+  public decreaseQuantity(itemToDecrease) {
+    let item = this.order.menuItems.find(item => item._id == itemToDecrease._id);
+
+    if (item.quantity > 1) {
+      item.quantity -= 1;
+      return this.getOrder();
+    }
+  }
+
+  public removeItem(itemToRemove) {
+    let index = this.order.menuItems.findIndex(item => item._id == itemToRemove._id);
+
+    if (index >= 0) {
+      this.order.menuItems.splice(index, 1);
+      return this.getOrder();
+    }
   }
 }
 

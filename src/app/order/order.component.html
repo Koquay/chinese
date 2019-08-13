@@ -1,17 +1,12 @@
 <app-header></app-header>
-<!-- <app-message></app-message> -->
+<app-message></app-message>
 
 <div class="container-fluid view-height" id="order">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <img class="img-fluid" src="assets/img/MDR-653-TOGO-WEBGraphics_TakeOut-banner_B-2.jpg">
-            </div>
-        </div>
-    </div>
+    <app-banner></app-banner>
 
     <div class="container mt-4">
-        <section id="items">
+        <app-page-header></app-page-header>
+        <section id="items" class="py-4 px-2 mt-2">
             <div class="row d-none d-lg-flex pt-3 justify-content-center">
                 <div class="col col-lg-4">
                     <h5>Item</h5>
@@ -39,7 +34,7 @@
                 <div class="col-6 text-right col-md-2">
                     <span>{{item.price | currency:'USD':'symbol-narrow'}}</span>
                 </div>
-                <div class="col-6 text-center col-md-3">
+                <div class="col-6 text-md-center col-md-3">
                     <a (click)="decreaseQuantity(item)">
                         <i class="fa fa-minus-square quantity-change"></i>
                     </a>
@@ -60,7 +55,7 @@
                 </div>
             </div>
         </section>
-        <section id="totals" class=" justify-content-center">
+        <section id="totals" class="justify-content-center px-2">
             <div class="row">
                 <div class="col col-md-2 text-right offset-md-63">
                     <span>Subtotal:</span>
@@ -106,7 +101,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title primary-color" id="deleteItemModalLabel">
-                        Delete this item from your cart?
+                        Delete this item from your order?
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

@@ -1,0 +1,90 @@
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+$gray: #f7f7f7;
+$deep-green: #75a478;
+$red: #a30000; 
+
+#checkout {
+    background: $tertiary;
+    font-size: 1.2rem;
+
+    .quantity {
+        .add {
+            color: $primary;
+            font-size:1.4rem;
+            
+            &:hover {
+                color: $secondary;
+            }
+        }
+    }
+    
+    .delivery {
+        background: $gray;   
+
+        #delivery-address {
+            transition: 1s;
+        }
+    }
+    
+    #order-title {
+        width: 10.5rem;
+        border-bottom: 4px solid $tertiary;
+    }
+
+    
+    
+    #discount {
+        color: $red;
+    }
+
+    i {
+        color: $deep-green !important;
+        font-size: 1.5rem;
+    
+        &:hover {
+            color: $primary !important;
+        }
+    }
+    
+    .fa-trash {
+        color: $red !important;
+    
+        &:hover {
+            color: $deep-green !important;
+        }
+    }
+
+    .view-height {
+        min-height: 61vh !important;
+      }
+
+      
+
+      @media (min-width:768px) {
+        .offset-md-60 {
+          margin-left: 60%;
+        }
+      }
+    
+    @media (min-width:991px) {
+        .view-height {
+            min-height: 64vh !important;
+          }
+      }      
+    
+}
+
+.modal-header {
+    button,
+    h5 {
+        color: $red !important;            
+    }        
+}
+
+.modal-footer {
+    .btn-delete {
+        background: $red;
+    }
+}

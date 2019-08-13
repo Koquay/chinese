@@ -15,6 +15,11 @@ const routes: Routes = [
     data: {breadcrumb: 'Order'}
   },
   {
+    path: 'checkout',
+    loadChildren: './checkout/checkout.module#CheckoutModule',
+    data: {breadcrumb: 'Checkout'}
+  },
+  {
     path: '', pathMatch: 'prefix', redirectTo: 'home'
   }
 ];
