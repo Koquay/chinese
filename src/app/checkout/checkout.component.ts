@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order/order.service';
 import { Order, MenuItem } from '../shared/models/data-model';
+import { MessageService } from '../shared/message/message/message.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,11 +13,20 @@ export class CheckoutComponent implements OnInit {
   private deleteItem:MenuItem;
 
   constructor(
-    private orderService: OrderService
+    private orderService: OrderService,
+    private messageService:MessageService
   ) { }
 
   ngOnInit() {
     this.getOrder();
+  }
+
+  private placeOrder() {
+    console.log('placing order', this.order)
+
+    this.orderService.placeOrder().subscribe(order => {
+      this.messageService.sendSuccess("Your order was successfully placed. It will be ready in about 15 minutes.")
+    });
   }
 
   private getOrder() {
@@ -54,12 +64,6 @@ export class CheckoutComponent implements OnInit {
     console.log('delivery', this.order.delivery)
   }
 
-  private placeOrder() {
-    console.log('placing order', this.order)
-
-    // this.orderService.placeOrder(this.order).subscribe(() => {
-    //   this.orderPlaced = true;
-    // });
-  }
+  
 
 }

@@ -21,10 +21,10 @@ $red: #a30000;
     }
     
     .delivery {
-        background: $gray;   
+        background: $secondary;   
 
         #delivery-address {
-            transition: 1s;
+            transition: 3s;
         }
     }
     
@@ -59,6 +59,19 @@ $red: #a30000;
     .view-height {
         min-height: 61vh !important;
       }
+
+      .place-order-btn {
+        background: $primary;
+        color: $tertiary;
+        font-weight: bold;
+        letter-spacing: .5rem;
+        min-width: 212px;
+        border-color: $primary !important; 
+    
+        &:hover {
+            background: $deep-green;
+        }
+    }
 
       
 

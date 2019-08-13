@@ -6,12 +6,15 @@ import { CheckoutComponent } from './checkout.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
+import {NgxMaskModule, IConfig} from 'ngx-mask'
+export let options: Partial<IConfig> | (() => Partial<IConfig>);  
 
 @NgModule({
   declarations: [CheckoutComponent],
   imports: [
     CommonModule,
     CheckoutRoutingModule,
+    NgxMaskModule.forRoot(options),
     SharedModule,
     FormsModule
   ]

@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Order, Menu, MenuItem } from '../shared/models/data-model';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   public order:Order = null;
-  
-  constructor() { }
+  private orderUrl = '/api/order/';
+
+  constructor(
+    private httpClient:HttpClient
+  ) { }
+
+  public placeOrder() {
+    return this.httpClient.post<Order>(this.orderUrl, this.order).pipe(
+      tap(order => {
+        console.log('new order', order)
+      })
+    )
+  } 
 
   public addToOrder(item:Menu) {
    if(this.order == null) {
@@ -88,7 +102,7 @@ export class OrderService {
       this.order.menuItems.splice(index, 1);
       return this.getOrder();
     }
-  }
+  }  
 }
 
 

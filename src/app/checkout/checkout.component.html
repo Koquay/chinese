@@ -99,7 +99,7 @@
                             </section>
                         </div>
                         <div class="col-12 col-lg-4 ml-lg-5">
-                            <form #deliveryForm="ngForm">
+                            <!-- <form #deliveryForm="ngForm"> -->
                                 <div class="form-row">
                                     <div class="col delivery p-4">
                                         <div class="form-row">
@@ -187,14 +187,14 @@
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 text-center">
-                                                <button class="btn btn-primary view-order w-75" type="button" [disabled]="!deliveryForm.form.valid" (click)="placeOrder()">
-                                                    <strong>Place Order</strong>
+                                                <button class="btn btn-primary place-order-btn w-75" type="button" [disabled]="!deliveryForm.form.valid" (click)="placeOrder()">
+                                                    <strong>PLACE ORDER</strong>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            <!-- </form> -->
                         </div>
                     </div>
                 </form>

@@ -14,11 +14,8 @@ export class MenuItem {
     public type:string;
 }
 
-export class Order {
-    public menuItems:MenuItem[] = [];
+export class Order {    
     _id: string;
-    order_no: number;
-    order_date: Date;
     discount: number;
     tax: number;
     subtotal: number;
@@ -26,7 +23,9 @@ export class Order {
     special_instructions: string;
     status: string;
     created_on: Date;
+    created_time: Date;
     public delivery:Delivery = new Delivery();
+    public menuItems:MenuItem[] = [];
     
 }
 
