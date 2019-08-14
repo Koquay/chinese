@@ -32,8 +32,17 @@ export class Order {
 export class Delivery {
     public method:String = "PickUp";
     public name:String;
-    public telephone:String;
+    public phone:String;
     public address:String;
     public city:String;
     public instruction:String;    
+}
+
+export class User {
+    constructor(
+        private email = 'chinese@yahoo.com',
+        private password = 'chinese',
+        private token = '',
+    ) {}
+
 }

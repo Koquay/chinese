@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, catchError } from 'rxjs/operators';
 import { Menu } from '../shared/models/data-model';
 import { of } from 'rxjs';
+import { MessageService } from '../shared/message/message/message.service';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class HomeService {
   private menuUrl = '/api/menu/';  
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private messageService:MessageService
   ) {}
 
   public getMenu() {
@@ -21,6 +23,10 @@ export class HomeService {
         console.log('menu', menu)
         menu = this.addQuantities(menu);
         return menu;
+      }),
+      catchError(error => {
+        this.messageService.sendErrorMessage(error);
+        throw error;
       })
     )
   }  

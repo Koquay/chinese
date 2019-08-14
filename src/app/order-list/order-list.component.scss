@@ -1,0 +1,53 @@
+$red: #a30000; 
+
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+$deep-green: #75a478;
+
+
+#order-list {
+    font-size: 1.2rem;
+    background: $tertiary;
+
+    a {
+     color:#212529;         
+    }
+    
+    .heading {
+        font-weight: bold;
+        font-size: 1.5rem;
+        border-bottom: 3px solid $primary;
+        // color: $primary;
+    }
+
+    .col-title {
+        font-size: 1.2rem;
+        border-bottom: 2px solid $primary;
+    }
+
+    #pending-orders {
+        margin-bottom: 5rem;
+    }
+
+    .completed-orders {
+        // background: $tertiary;
+        color: $red;
+
+        a {
+            color: $red;
+        }
+    }
+}
+
+.prepared-order {
+    color: green;
+
+    a {
+        color: green !important;
+    }
+}
+
+.view-height {
+    min-height: 61vh !important;
+  }

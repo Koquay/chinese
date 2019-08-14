@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { RequestInterceptor } from './shared/interceptors/request-interceptor';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 const MenuService = require('./menu.service');
 const chalk = require('chalk');
+const ErrorHandler = require('../error/error-handler');
 
 exports.getMenu = async(req, res) => {
     console.log(chalk.blue('MENU CONTROLLER GETMENU'));
@@ -9,7 +10,7 @@ exports.getMenu = async(req, res) => {
         res.status(200).json(menu);
         return;
     } catch(error) {
-        throw error;
+        return ErrorHandler.handleError('setOrderStatus ERROR', res, error);
     }
     
 }

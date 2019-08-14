@@ -1,6 +1,7 @@
 $primary: #97b498;
 $secondary: #c8e6c9;
 $tertiary: #fbfffc;
+$deep-green: #75a478;
 
 #header {
     .jumbotron {
@@ -34,5 +35,21 @@ $tertiary: #fbfffc;
            font-size: 1.2rem;  
            font-weight: bold !important;
         }
+    }
+}
+
+#myAccountModal {
+    h2 {
+        color: $deep-green !important;
+    }
+
+    .btn {
+        background: $deep-green !important;
+        font-size: 1.2rem;
+    }
+
+    .close {
+        color: $deep-green !important;
+        font-size: 1.2rem !important;
     }
 }

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Order, Menu, MenuItem } from '../shared/models/data-model';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
+import { MessageService } from '../shared/message/message/message.service';
 
 
 @Injectable({
@@ -13,13 +14,19 @@ export class OrderService {
   private orderUrl = '/api/order/';
 
   constructor(
-    private httpClient:HttpClient
+    private httpClient:HttpClient,
+    private messageService:MessageService
   ) { }
 
   public placeOrder() {
     return this.httpClient.post<Order>(this.orderUrl, this.order).pipe(
       tap(order => {
         console.log('new order', order)
+      }),
+      catchError(error => {
+        console.log('error', error)
+        this.messageService.sendErrorMessage(error);
+        throw error;
       })
     )
   } 

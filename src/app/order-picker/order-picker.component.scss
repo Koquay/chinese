@@ -1,0 +1,28 @@
+$red: #a30000; 
+
+$primary: #97b498;
+$secondary: #c8e6c9;
+$tertiary: #fbfffc;
+$deep-green: #75a478;
+
+#order-picker{
+    background: $tertiary;
+    font-size: 1.2rem;  
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-bottom: 3px solid $primary;
+}
+
+.col-title {
+    font-size: 1.2rem;
+    border-bottom: 2px solid $primary;
+}
+
+input[type=checkbox] 
+{
+    width: 2rem;
+    height: 1rem;
+} 
