@@ -1,6 +1,7 @@
 <app-header></app-header>
 <app-message></app-message>
 <app-banner></app-banner>
+<app-breadcrumb></app-breadcrumb>
 
 <div class="container view-height mt-4">
     <app-page-header></app-page-header>
@@ -18,7 +19,6 @@
                             <div class="form-row d-none d-md-block">
                                 <div class="col">
                                     <div class="form-row font-weight-bold">
-                                        <!-- <div class="col"><span>Item</span></div> -->
                                         <div class="col-12 col-md-6 d-flex justify-content-start align-items-center"><span
                                                 class="d-flex">Item</span></div>
                                         <div class="col-9 col-md-3 d-flex align-items-center justify-content-md-center"><span>Quantity</span></div>
@@ -78,8 +78,11 @@
                                     <div class="col col-md-2 text-right"><span class="font-weight-bold">{{order.tax | currency:'USD':'symbol-narrow'}}</span></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col col-md-2 text-right offset-md-60"><span>Discount:</span></div>
-                                    <div class="col col-md-2 text-right"><span id="discount" class="font-weight-bold">
+                                    <div class="col col-md-2 text-right offset-md-60">
+                                        <span>Discount:</span>
+                                    </div>
+                                    <div class="col col-md-2 text-right">
+                                        <span id="discount" class="font-weight-bold">
                                             {{order.discount | currency:'USD':'symbol-narrow'}}
                                         </span>
                                     </div>

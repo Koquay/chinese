@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '',
     component: OrderComponent,
-    canActivate: [OrderGuard]
+    canActivate: [OrderGuard],
+    data: { breadcrumb: 'Order'}
   }
 ];
 

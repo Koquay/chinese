@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '',
     component: CheckoutComponent,    
-    canActivate: [CheckoutGuard]
+    canActivate: [CheckoutGuard],
+    data: { breadcrumb: 'Checkout'}
   }
 ];
 

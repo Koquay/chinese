@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'order-list',
     loadChildren: './order-list/order-list.module#OrderListModule',
-    data: {breadcrumb: 'Order List'}
+    data: {breadcrumb: 'Pending Order'}
   },
   {
     path: 'order-picker',

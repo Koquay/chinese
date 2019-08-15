@@ -9,6 +9,7 @@ import { TabPaneComponent } from './components/tab-pane/tab-pane.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { MessageComponent } from './message/message/message.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { BannerComponent } from './components/banner/banner.component';
     TabPaneComponent,
     PageHeaderComponent,    
     MessageComponent, 
-    BannerComponent
+    BannerComponent,
+    BreadcrumbComponent
   ],
   exports: [
     HeaderComponent,
@@ -26,7 +28,8 @@ import { BannerComponent } from './components/banner/banner.component';
     TabPaneComponent,
     PageHeaderComponent,    
     MessageComponent, 
-    BannerComponent
+    BannerComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,

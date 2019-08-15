@@ -9,7 +9,7 @@ $red: #a30000;
     background: $tertiary;
     font-size: 1.2rem;
 
-    .quantity {
+    .quantity {        
         .add {
             color: $primary;
             font-size:1.4rem;
@@ -22,6 +22,7 @@ $red: #a30000;
     
     .delivery {
         background: $secondary;   
+        font-size:1.2rem;
 
         #delivery-address {
             transition: 3s;
@@ -70,8 +71,14 @@ $red: #a30000;
     
         &:hover {
             background: $deep-green;
+            color: black;
         }
     }
+
+    input[type=text] 
+    {
+        font-size: 1.2rem;
+    } 
 
       
 
