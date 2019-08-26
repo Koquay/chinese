@@ -48,3 +48,8 @@ export class User {
     ) {}
 
 }
+
+export class SearchCriteria {
+    order_no: string;
+    phone: string;
+}
