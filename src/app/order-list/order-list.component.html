@@ -2,8 +2,8 @@
 <app-message></app-message>
 <app-banner></app-banner>
 <app-breadcrumb></app-breadcrumb>
-<div class="container view-height p-md-2 mt-4" id="order-list">
-    <section id="pending-orders" class="offset-sm-1">
+<div class="container view-height p-md-4 mt-4" id="order-list">
+    <section id="pending-orders" class="offset-lg-1">
         <div class="row text-center mb-4">
             <div class="col"><span class="heading">Pending Orders<br></span></div>
         </div>
@@ -15,34 +15,32 @@
                 <span class="font-weight-bold col-title">Phone</span>
             </div>
             <div class="col-3">
-                <span class="text-center font-weight-bold col-title">Order Time</span>
+                <span class="text-center font-weight-bold col-title">Order Date</span>
             </div>
             <div class="col-2">
                 <span class="font-weight-bold col-title">Status</span>
             </div>
         </div>
         <div class="row mb-lg-2 mb-4" *ngFor="let order of pendingOrders" [ngClass]="{'prepared-order' : order.status == 'Prepared'}">
-            <div class="col">
+            <div class="col-12 col-md-4">
                 <a [routerLink]="['/order-picker', order._id]">
                     {{order.delivery.name}}<br>
                 </a>
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-3">
                 <a [routerLink]="['/order-picker', order._id]">
                     {{order.delivery.phone | mask: '(000) 000-0000'}}<br>
                 </a>
             </div>
-            <div class="col-3 text-left col-lg-3">
+            <div class="col-12 col-md-3 text-left">
                 <span class="">{{order.created_time | date:'shortTime' }}<br></span>
             </div>
-            <div class="col-3 col-lg-2">
-                <span class="text-center">
-                    {{order.status}}<br>
-                </span>
+            <div class="col-12 col-md-2 col-lg-2">
+                <span class="text-center">{{order.status}}<br></span>
             </div>
         </div>
     </section>
-    <section class="offset-sm-1">
+    <section class="offset-lg-1">
         <div class="row text-center mb-4">
             <div class="col"><span class="heading">Fulfilled Orders<br></span></div>
         </div>
@@ -54,32 +52,32 @@
                 <span class="font-weight-bold col-title">Phone</span>
             </div>
             <div class="col-3">
-                <span class="text-center font-weight-bold col-title">Order Time</span>
+                <span class="text-center font-weight-bold col-title">Order Date</span>
             </div>
             <div class="col-2">
                 <span class="font-weight-bold col-title">Status</span>
             </div>
         </div>
         <div class="row mb-lg-2 mb-4 completed-orders" *ngFor="let order of completedOrders">
-            <div class="col">
+            <div class="col-12 col-md-4">
                 <a [routerLink]="['/order-picker', order._id]">
                     {{order.delivery.name}}<br>
                 </a>
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-3">
                 <a [routerLink]="['/order-picker', order._id]">
                     {{order.delivery.phone | mask: '(000) 000-0000'}}<br>
                 </a>
             </div>
-            <div class="col-3 text-left col-lg-3">
+            <div class="col-12 col-md-3 text-left">
                 <span class="">{{order.created_time | date:'shortTime' }}<br></span>
             </div>
-            <div class="col-3 col-lg-2">
+            <div class="col-12 col-md-2 col-lg-2">
                 <span class="text-center">{{order.status}}<br></span>
             </div>
         </div>
     </section>
-    <section id="pending-orders" class="offset-sm-1 mt-5">
+    <section id="pending-orders" class="offset-lg-1 mt-5 pb-2">
         <div class="row text-center mb-4">
             <div class="col"><span class="heading">Order Search<br></span></div>
         </div>
@@ -92,18 +90,18 @@
                     <input class="form-control" type="text" name="order_no" [(ngModel)]="searchCriteria.order_no">
                 </div>
             </div>
-            <div class="form-row px-4 mb-2 mb-md-0">
-                <div class="col-12 col-md-4 col-lg-2 offset-lg-1 text-right form-label">
+            <div class="form-row mb-2 mb-md-0">
+                <div class="col-12 form-label">
                     <label class="col-form-label">Phone:</label>
                 </div>
-                <div class="col-12 col-md-4 col-lg-2 mb-2">
+                <div class="col-6 col-md-3 col-lg-2 mb-2">
                     <input class="form-control" type="text" name="phone" [(ngModel)]="searchCriteria.phone" mask="(000) 000-0000" maxlength="14">
                 </div>
             </div>
 
-            <div class="form-row text-left px-4">
-                <div class="col-12 text-left offset-md-4 offset-lg-3 col-md-8">
-                    <div class="text-left" id="search">
+            <div class="form-row">
+                <div class="col-12 col-md-8">
+                    <div class="" id="search">
                         <button class="btn btn-primary" type="button" (click)="searchOrder()">
                             <i class="fa fa-search mr-1"></i>SEARCH</button>
                     </div>
@@ -125,20 +123,20 @@
             </div>
         </div>
         <div class="row mb-lg-2 mb-4" *ngFor="let order of searchedOrders">
-            <div class="col">
+            <div class="col-12 col-md-4">
                 <a [routerLink]="['/order-picker', order._id]">
                     {{order.delivery.name}}<br>
                 </a>
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-3">
                 <a [routerLink]="['/order-picker', order._id]">
                     {{order.delivery.phone | mask: '(000) 000-0000'}}<br>
                 </a>
             </div>
-            <div class="col-3 text-left col-lg-3">
+            <div class="col-12 col-md-3 text-left">
                 <span class="">{{order.created_on | date:'short' }}<br></span>
             </div>
-            <div class="col-3 col-lg-2">
+            <div class="col-12 col-md-2 col-lg-2">
                 <span class="text-center">{{order.status}}<br></span>
             </div>
         </div>
