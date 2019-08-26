@@ -7,7 +7,7 @@
 
     <div class="container mt-4">
         <app-page-header></app-page-header>
-        <section id="items" class="py-4 px-2 mt-2">
+        <section id="items" class="pt-4 px-2 mt-2">
             <div class="row d-none d-lg-flex pt-3 justify-content-center font-weight-bold">
                 <div class="col col-lg-4">
                     <h5>Item</h5>
@@ -28,11 +28,11 @@
                 </div>
             </div>
             <div class="row justify-content-center" *ngFor="let item of order.menuItems">
-                <div class="col col-md-4  text-left">
+                <div class="col-9 col-md-4  text-left">
                     <span class="text-center">{{item.name}}
                     </span>
                 </div>
-                <div class="col-6 text-right col-md-2">
+                <div class="col-3 text-right col-md-2">
                     <span>{{item.price | currency:'USD':'symbol-narrow'}}</span>
                 </div>
                 <div class="col-6 text-md-center col-md-3">

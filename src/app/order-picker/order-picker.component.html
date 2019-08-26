@@ -7,7 +7,7 @@
     <div class="row text-center mb-4">
         <div class="col"><span class="heading">Order<br></span></div>
     </div>
-    <section id="address">
+    <section id="address" class="">
         <div class="row mb-4 text-center">
             <div class="col offset-lg-5 text-left">
                 <div class="row">
@@ -102,10 +102,13 @@
             <div class="col-12 col-md-4 col-lg-3 offset-lg-2">
                 <span>{{item.name}}<br></span>
             </div>
-            <div class="col-3 col-lg-2 text-center">
+            <div class="col-4 col-md-3 col-lg-2 text-left text-md-center">
                 <span>{{item.quantity}}<br></span>
             </div>
-            <div class="col-3 text-right col-lg-2"><span>{{item.price * item.quantity | currency:'USD':'symbol-narrow'}}<br></span></div>
+            <div class="col-3  col-md-3 col-lg-2 text-right">
+                <span>{{item.price * item.quantity | currency:'USD':'symbol-narrow'}}<br>
+                </span>
+            </div>
         </div>
         <div class="row">
             <div class="col">
