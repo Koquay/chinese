@@ -14,6 +14,9 @@ $deep-green: #75a478;
     #items {
         background: $tertiary;
         // padding: 1rem 2rem 0rem;
+        h5 {
+            font-weight: bold;
+        }
     }
     
     #title {
@@ -37,10 +40,6 @@ $deep-green: #75a478;
         &:hover {
             color: $deep-green;
         }
-    }
-    
-    #discount {
-        color: $red;
     }
     
     #total-row {

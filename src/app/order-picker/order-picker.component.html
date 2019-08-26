@@ -44,6 +44,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                        <span class="mr-3 font-weight-bold">Payment Method:</span>
+                        <span>{{order.payment_method}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                         <span class="mr-3 font-weight-bold"><strong>Order Time</strong>:</span>
                         <span>{{order.created_time | date:'shortTime' }}<br></span>
                     </div>
@@ -115,23 +121,15 @@
                         <span>Subtotal:</span>
                     </div>
                     <div class="col-4 col-md-2 text-right">
-                        <span class="font-weight-bold">{{getSubtotal() | currency:'USD':'symbol-narrow'}}</span>
+                        <span class="font-weight-bold">{{order.subtotal | currency:'USD':'symbol-narrow'}}</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-4 col-md-2 col-lg-1 offset-md-6">
-                        <span>GST:</span>
+                        <span>Tax:</span>
                     </div>
                     <div class="col-4 col-md-2 text-right">
-                        <span class="font-weight-bold">{{getGST() | currency:'USD':'symbol-narrow'}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 col-md-2 col-lg-1 offset-md-6">
-                        <span>PST:</span>
-                    </div>
-                    <div class="col-4 col-md-2 text-right">
-                        <span class="font-weight-bold">{{getPST() | currency:'USD':'symbol-narrow'}}</span>
+                        <span class="font-weight-bold">{{order.tax| currency:'USD':'symbol-narrow'}}</span>
                     </div>
                 </div>
                 <div class="row" *ngIf="order.delivery.method == 'Delivery'">
@@ -139,15 +137,7 @@
                         <span>Delivery:</span>
                     </div>
                     <div class="col-4 col-md-2 text-right">
-                        <span class="font-weight-bold">{{getDeliveryCharge() | currency:'USD':'symbol-narrow'}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 col-md-2 col-lg-1 offset-md-6">
-                        <span>Discount:</span>
-                    </div>
-                    <div class="col-4 col-md-2 text-right">
-                        <span class="font-weight-bold">{{getDiscount() | currency:'USD':'symbol-narrow'}}</span>
+                        <span class="font-weight-bold">{{order.delivery_charge | currency:'USD':'symbol-narrow'}}</span>
                     </div>
                 </div>
                 <div class="row">
@@ -158,7 +148,7 @@
                         <span>Total:</span>
                     </div>
                     <div class="col-4 col-md-2 text-right">
-                        <span class="font-weight-bold">{{getTotal() | currency:'USD':'symbol-narrow'}}</span>
+                        <span class="font-weight-bold">{{order.total | currency:'USD':'symbol-narrow'}}</span>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     PageHeaderComponent,    
     MessageComponent, 
     BannerComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+
   ],
   exports: [
     HeaderComponent,

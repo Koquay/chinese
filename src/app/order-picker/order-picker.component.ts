@@ -49,20 +49,19 @@ export class OrderPickerComponent implements OnInit {
     return .10 * this.getSubtotal();
   }
 
-  private getDiscount() {
-    return .10 * this.getSubtotal();
-  }
 
   private getTotal() {
-    return (this.getSubtotal() + this.getGST() + this.getPST() + this.getDeliveryCharge() - this.getDiscount());
+    return (this.getSubtotal() + this.getGST() + this.getPST() + this.getDeliveryCharge());
   }
 
-  private getDeliveryCharge() {
-    if (this.order.delivery.method == 'Delivery') {
-      return .10 * this.getSubtotal();
+   private getDeliveryCharge() {
+    if(this.order.delivery.method == 'PickUp') {
+      this.order.delivery_charge = 0;
     } else {
-      return 0;
+      this.order.delivery_charge =  this.getSubtotal() * .10
     }
+
+    return this.order.delivery_charge;
   }
 
   private setOrderStatus() {

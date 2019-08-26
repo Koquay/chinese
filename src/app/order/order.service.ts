@@ -4,6 +4,7 @@ import { Order, Menu, MenuItem } from '../shared/models/data-model';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { MessageService } from '../shared/message/message/message.service';
+import { SalesTaxService } from '../shared/services/sales-tax.service';
 
 
 @Injectable({
@@ -15,13 +16,14 @@ export class OrderService {
 
   constructor(
     private httpClient:HttpClient,
-    private messageService:MessageService
+    private messageService:MessageService,
+    private salesTaxService:SalesTaxService,
   ) { }
 
-  public placeOrder() {
-    return this.httpClient.post<Order>(this.orderUrl, this.order).pipe(
-      tap(order => {
-        console.log('new order', order)
+  public placeOrder(order) {
+    return this.httpClient.post<Order>(this.orderUrl, order).pipe(
+      tap(newOrder => {
+        console.log('new order', newOrder)
       }),
       catchError(error => {
         console.log('error', error)
@@ -52,23 +54,30 @@ export class OrderService {
   }
 
   public getOrder() {
+    this.getDeliveryCharge();
     this.order.subtotal = this.getSubtotal();
-    this.order.discount = this.getDiscount();
     this.order.tax = this.getTax();
     this.order.total = this.getTotal();    
     return of(this.order);
   }
 
   public getTax() {
-    return this.getSubtotal() * .10;
+    let taxRate = this.salesTaxService.getTaxRate("ON");
+    return this.getSubtotal() * taxRate;
   }
 
-  public getDiscount() {
-    return this.getSubtotal() * .10;
+  private getDeliveryCharge() {
+    if(this.order.delivery.method == 'PickUp') {
+      this.order.delivery_charge = 0;
+    } else {
+      this.order.delivery_charge =  this.getSubtotal() * .10
+    }
+
+    return this.order.delivery_charge;
   }
 
   public getTotal() {
-    return this.getSubtotal() + this.getTax() - this.getDiscount();
+    return this.getSubtotal() + this.getTax() + this.getDeliveryCharge();
   }
 
   public getSubtotal() {
@@ -82,9 +91,6 @@ export class OrderService {
   }
 
   public increaseQuantity(itemToIncrease) {
-    // item.quantity += 1;
-    // return this.getOrder();
-
     let item = this.order.menuItems.find(item => item._id == itemToIncrease._id);
 
     if (item) {

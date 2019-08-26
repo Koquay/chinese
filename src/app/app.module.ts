@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { RequestInterceptor } from './shared/interceptors/request-interceptor';
-
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { RequestInterceptor } from './shared/interceptors/request-interceptor';
     AppRoutingModule,    
     HttpClientModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxStripeModule.forRoot('pk_test_zG3kv6VtWOPTLvijoeeRZFZq00Gb2MWxiZ'),
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]

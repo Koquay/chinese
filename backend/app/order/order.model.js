@@ -21,11 +21,12 @@ const MenuItemSchema = new Schema({
 }, {_id: false});
 
 const OrderSchema = new Schema({    
-    discount: {
-        type: Number,
-    },
     tax: {
         type: Number,
+    },
+    delivery_charge: {
+        type: Number,
+        required: true
     },
     subtotal: {
         type: Number,
@@ -35,7 +36,13 @@ const OrderSchema = new Schema({
         type: Number,
         required: true
     },
+    payment_method: {
+        type: String,
+    },
     special_instructions: {
+        type: String,
+    },
+    card_id: {
         type: String,
     },
     status: {
